@@ -79,7 +79,7 @@ export class ClaudeParser implements HistoryParser {
 
     // Derive project path from the grandparent directory name.
     // Layout: ~/.claude/projects/<encoded-project-path>/<uuid>.jsonl
-    const project = path.dirname(path.dirname(filePath));
+    const project = path.dirname(filePath);
 
     return [{ tool: 'Claude Code', project, timestamp, messages }];
   }
