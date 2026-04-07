@@ -14,8 +14,19 @@ Continue in: ◀ Claude Code ▶   ↑↓ navigate · tab: switch tool · ↵ la
 
 Add this alias to your shell — then just type `resume` from anywhere:
 
+**zsh:**
 ```bash
 echo "alias resume='npx ai-resume-cli@latest'" >> ~/.zshrc && source ~/.zshrc
+```
+
+**bash:**
+```bash
+echo "alias resume='npx ai-resume-cli@latest'" >> ~/.bashrc && source ~/.bashrc
+```
+
+**fish:**
+```bash
+echo "alias resume='npx ai-resume-cli@latest'" >> ~/.config/fish/config.fish
 ```
 
 That's it. No global install needed. The `@latest` tag ensures you always get the most recent version instead of a cached one.
