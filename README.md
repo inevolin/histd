@@ -18,7 +18,7 @@ Add this alias to your shell — then just type `resume` from anywhere:
 echo "alias resume='npx ai-resume-cli'" >> ~/.zshrc && source ~/.zshrc
 ```
 
-That's it. No global install needed.
+That's it. No global install needed — and you'll always get the latest version automatically.
 
 ```bash
 resume
