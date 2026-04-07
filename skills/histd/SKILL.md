@@ -1,59 +1,24 @@
 ---
 name: histd
-description: Interactive session picker — shows recent AI coding sessions for this project across all tools (Claude Code, Codex, Copilot, Cursor) and lets the user select one to continue from.
+description: Interactive session picker — opens histd in the terminal to browse recent AI coding sessions across all tools and resume the selected one.
 ---
 
 # histd — session picker
 
-**Announce at start:** "I'm using histd to fetch your recent session history."
+**Announce at start:** "I'm launching histd to show your recent session history."
 
-## Step 1 — Fetch sessions
+Run the following shell command to open the interactive picker:
 
-Call the `get_recent_context` MCP tool:
-- **Claude Code:** server is `histd-local` → call `histd-local: get_recent_context`
-- **Codex / Copilot:** server is `histd` → call `histd: get_recent_context`
-- Pass `project_path` = current working directory
-- Pass `limit` = 10
-
-Save the full raw output — you will need it in Step 3.
-
-## Step 2 — Present the picker
-
-If no sessions were found:
-```
-No session history found for this project.
-Make sure histd is configured as an MCP server in your tool's config.
-```
-Stop.
-
-Otherwise, display a numbered list. For each session show one line:
-
-```
-[N] <Tool> — <date> — <one-sentence summary of what was worked on>
+```bash
+npx github:inevolin/histd
 ```
 
-Then ask:
+This opens an interactive TUI in the terminal:
+- **↑ / ↓** — navigate sessions
+- **Tab** — cycle the target tool (Claude Code / Codex / Copilot)
+- **Enter** — launch the selected session in the chosen tool
+- **q** — quit without launching
 
-```
-Which session would you like to continue with? (enter a number, or 0 to skip)
-```
+The picker lists sessions from all detected tools across all projects. Selecting a session and pressing Enter will launch the target tool with the full session context loaded via native `--resume`.
 
-Wait for the user's response before proceeding.
-
-## Step 3 — Load the selected session
-
-**If the user enters 0 or skips:** stop, no further action.
-
-**Otherwise:** from the raw output saved in Step 1, extract the full content of the chosen session (all User/Assistant turns) and display it in full so the context is visible.
-
-Then say:
-
-```
-Ready. Continuing from the [Tool] session on [date].
-```
-
-## Guidelines
-
-- Keep the summaries in Step 2 tight — one sentence, focus on *what* was being worked on, not tool names or timestamps (those are already shown).
-- Do not truncate or paraphrase the session content in Step 3 — show it verbatim so nothing is lost.
-- If the user picks a number out of range, ask again.
+No further action is needed — the tool handles everything.
