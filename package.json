@@ -7,8 +7,15 @@
   "bin": {
     "resume": "dist/cli.js"
   },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run lint && npm test",
     "start": "node dist/cli.js",
     "test": "node --experimental-vm-modules node_modules/.bin/jest",
     "lint": "tsc --noEmit"

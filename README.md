@@ -5,15 +5,21 @@ Interactive TUI session picker for AI coding tools. Lists your recent sessions f
 ## Quick Start
 
 ```bash
-npx github:inevolin/resume-cli
+npx resume-cli
 ```
 
 No install required. Requires Node.js 18+.
 
+**Optional global install:**
+
+```bash
+npm install -g resume-cli
+```
+
 **Optional shell alias** (use any name you like):
 
 ```bash
-echo "alias resume='npx github:inevolin/resume-cli'" >> ~/.zshrc
+echo "alias resume='npx resume-cli'" >> ~/.zshrc
 source ~/.zshrc
 ```
 
@@ -49,16 +55,6 @@ npm link            # run once inside the repo
 resume              # works in any directory
 npm unlink -g resume-cli  # remove when done
 ```
-
-## Slash command (Claude Code / Codex / Copilot)
-
-Install the `/resume` slash command so you can trigger the session picker from within any AI tool:
-
-```bash
-npx skills add inevolin/resume-cli
-```
-
-Then use `/resume` in Claude Code, Codex, or Copilot to open the picker.
 
 ## How it works
 
