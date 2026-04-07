@@ -7,7 +7,7 @@ describe('collectAllSessions', () => {
   let tmpDir: string;
 
   beforeEach(() => {
-    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'histd-sessions-test-'));
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'resume-cli-sessions-test-'));
   });
 
   afterEach(() => {

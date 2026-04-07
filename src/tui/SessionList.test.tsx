@@ -6,14 +6,14 @@ import type { Session } from '../parser/types.js';
 const makeSessions = (): Session[] => [
   {
     tool: 'Claude Code',
-    project: '/Users/ilya/histd',
+    project: '/Users/user/myproject',
     timestamp: new Date('2026-04-06T10:00:00Z'),
     messages: [{ role: 'user', content: 'Fixed parser bugs and rewrote CodexParser' }],
     sessionId: 'uuid-1',
   },
   {
     tool: 'Codex',
-    project: '/Users/ilya/histd',
+    project: '/Users/user/myproject',
     timestamp: new Date('2026-04-05T10:00:00Z'),
     messages: [{ role: 'user', content: 'Analyzed MCP vs daemon architecture' }],
     sessionId: 'uuid-2',

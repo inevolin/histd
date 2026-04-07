@@ -52,7 +52,7 @@ export function App({ sessions, installedTools, onLaunch }: AppProps): React.Rea
   return (
     <Box flexDirection="column">
       <Box paddingLeft={1} marginBottom={1}>
-        <Text bold color="blueBright">histd</Text>
+        <Text bold color="blueBright">resume</Text>
         <Text color="gray">  — recent AI coding sessions</Text>
       </Box>
       <SessionList sessions={sessions} cursor={cursor} visibleRows={20} />

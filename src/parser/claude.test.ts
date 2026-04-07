@@ -21,7 +21,7 @@ describe('ClaudeParser.canHandle', () => {
 
 describe('ClaudeParser.parse', () => {
   it('should parse a basic JSONL session', async () => {
-    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'histd-test-'));
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'resume-cli-test-'));
     const lines = [
       {
         type: 'user',
@@ -51,7 +51,7 @@ describe('ClaudeParser.parse', () => {
   });
 
   it('should parse structured content blocks', async () => {
-    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'histd-test-'));
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'resume-cli-test-'));
     const line = {
       type: 'user',
       message: {
@@ -78,7 +78,7 @@ describe('ClaudeParser.parse', () => {
   });
 
   it('should decode the encoded project directory name back to a real path', async () => {
-    const base = fs.mkdtempSync(path.join(os.tmpdir(), 'histd-test-'));
+    const base = fs.mkdtempSync(path.join(os.tmpdir(), 'resume-cli-test-'));
     // Simulate ~/.claude/projects/-Users-ilya-myproject/session.jsonl
     const projectDir = path.join(base, '-Users-ilya-myproject');
     fs.mkdirSync(projectDir, { recursive: true });
@@ -100,7 +100,7 @@ describe('ClaudeParser.parse', () => {
   });
 
   it('sets sessionId to the filename stem', async () => {
-    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'histd-test-'));
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'resume-cli-test-'));
     const line = {
       type: 'user',
       timestamp: '2026-04-06T10:00:00Z',

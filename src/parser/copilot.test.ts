@@ -6,7 +6,7 @@ import { CopilotParser } from './copilot.js';
 const SESSION_UUID = 'abc123-uuid-test';
 
 const SESSION_EVENTS = [
-  JSON.stringify({ type: 'session.start', timestamp: '2026-04-06T10:00:00.000Z', data: { startTime: '2026-04-06T10:00:00.000Z', context: { cwd: '/Users/ilya/histd' } } }),
+  JSON.stringify({ type: 'session.start', timestamp: '2026-04-06T10:00:00.000Z', data: { startTime: '2026-04-06T10:00:00.000Z', context: { cwd: '/Users/user/myproject' } } }),
   JSON.stringify({ type: 'user.message', timestamp: '2026-04-06T10:01:00.000Z', data: { content: 'Hello from Copilot' } }),
   JSON.stringify({ type: 'assistant.message', timestamp: '2026-04-06T10:02:00.000Z', data: { content: 'Hello back from Copilot' } }),
 ].join('\n') + '\n';
@@ -18,7 +18,7 @@ describe('CopilotParser', () => {
   let parser: CopilotParser;
 
   beforeAll(() => {
-    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'histd-copilot-test-'));
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'resume-cli-copilot-test-'));
     sessionDir = path.join(tmpDir, SESSION_UUID);
     fs.mkdirSync(sessionDir, { recursive: true });
     eventsFile = path.join(sessionDir, 'events.jsonl');
@@ -50,7 +50,7 @@ describe('CopilotParser', () => {
 
   it('sets project from session.start.data.context.cwd', async () => {
     const sessions = await parser.parse(eventsFile);
-    expect(sessions[0].project).toBe('/Users/ilya/histd');
+    expect(sessions[0].project).toBe('/Users/user/myproject');
   });
 
   it('sets sessionId from parent directory name', async () => {

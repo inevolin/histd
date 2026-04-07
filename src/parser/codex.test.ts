@@ -7,7 +7,7 @@ const parser = new CodexParser();
 let tmpDir: string;
 
 beforeEach(() => {
-  tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'histd-codex-'));
+  tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'resume-cli-codex-'));
 });
 
 afterEach(() => {

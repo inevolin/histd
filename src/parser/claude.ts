@@ -79,7 +79,7 @@ export class ClaudeParser implements HistoryParser {
 
     // Attempt to decode the Claude-encoded project path back to a real filesystem path.
     // Claude encodes project paths by replacing all non-alphanumeric chars with '-',
-    // so "/Users/ilya/histd" becomes "-Users-ilya-histd". The decode is lossy (dots also
+    // so "/Users/ilya/myproject" becomes "-Users-ilya-myproject". The decode is lossy (dots also
     // become '-'), but works correctly for typical paths without dots in directory names.
     const encodedName = path.basename(path.dirname(filePath));
     const project = encodedName.startsWith('-')
