@@ -30,6 +30,26 @@ histd
 
 Only tools that are installed on your machine appear in the tool cycle list.
 
+## Local development
+
+To run from a local clone (e.g. to test a branch before merging):
+
+```bash
+git clone https://github.com/inevolin/histd
+cd histd
+npm install
+npm run build
+node dist/cli.js
+```
+
+Or link it globally so you can type `histd` anywhere:
+
+```bash
+npm link       # run once inside the repo
+histd          # works in any directory
+npm unlink -g histd  # remove when done
+```
+
 ## Slash command (Claude Code / Codex / Copilot)
 
 Install the `/histd` slash command so you can trigger the session picker from within any AI tool:
