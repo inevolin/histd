@@ -18,7 +18,8 @@ export function buildCommand(session: Session, targetTool: string): string {
   }
 
   // Cross-tool or same-tool without sessionId: fresh start with context prompt.
-  const sourceFile = session.filePath ?? 'unknown';
+  // Normalise to forward slashes — works in bash, zsh, fish, PowerShell, and git bash on Windows.
+  const sourceFile = (session.filePath ?? 'unknown').replace(/\\/g, '/');
   const prompt =
     `Continue the conversation from the session history stored in this file: ${sourceFile}\n\n` +
     `Read that file to understand our previous conversation, then let me know you're ready to continue.`;
